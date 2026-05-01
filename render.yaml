@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: exam-proctoring-dashboard
+    runtime: python
+    buildCommand: pip install -r requirements-deploy.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: DEMO_MODE
+        value: "true"
+      - key: FLASK_DEBUG
+        value: "false"
